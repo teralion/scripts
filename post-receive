@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ ! -d /tmp/build ]; then
+  mkdir /tmp/build
+fi
+
+cd /tmp/build
+
+if [ -d /tmp/build/aircrafts ]; then
+  rm -Rf /tmp/build/aircrafts
+fi
+
+git clone /home/git/aircrafts.git
+if [ "$?" -eq "0" ]; then
+  cd /tmp/build/aircrafts
+  git checkout master
+fi
